@@ -15,10 +15,11 @@ public class Naifu : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            GameObject igaguri = Instantiate(NaifuPrefab);
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.value);
-            igaguri.GetComponent<NaifuContror>().Shoot(ray.direction * 2000);
+            GameObject Naifu = Instantiate(NaifuPrefab, ray.origin, Quaternion.LookRotation(ray.direction));
+
+            Naifu.GetComponent<NaifuContror>().Shoot(ray.direction * 2000);
         }
     }
 }

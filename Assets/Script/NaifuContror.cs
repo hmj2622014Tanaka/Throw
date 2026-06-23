@@ -11,6 +11,10 @@ public class NaifuContror : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+
         if (collision.gameObject.name == "target")
         {
             Debug.Log("“I‚É“–‚½‚Á‚½");
