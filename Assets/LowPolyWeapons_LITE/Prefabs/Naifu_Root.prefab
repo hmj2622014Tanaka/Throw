@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3240104793227020421}
   - component: {fileID: 7122904647513009217}
   - component: {fileID: 6219004965070647356}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Naifu_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c70af4fe545dd48861b5b2b1c1ef32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NaifuContror
-  hitTargetSe: {fileID: 0}
+  hitTargetSe: {fileID: 8300000, guid: fcd5025fdd4edb147b17980ae152c148, type: 3}
 --- !u!65 &6219004965070647356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3200579693828559379, guid: 33af04377340f884695d1a25fc90415f, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3337456471941959479, guid: 33af04377340f884695d1a25fc90415f, type: 3}

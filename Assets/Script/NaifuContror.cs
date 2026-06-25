@@ -6,7 +6,13 @@ public class NaifuContror : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Shoot(Vector3 dir)
     {
-        GetComponent<Rigidbody>().AddForce(dir);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true; // èdóÕÇ≈óéÇøÇ»Ç¢ê›íËÇ‡Ç±Ç±Ç≈îOâüÇµ
+            rb.AddForce(dir);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -18,10 +24,8 @@ public class NaifuContror : MonoBehaviour
         if (collision.gameObject.name == "target")
         {
             Debug.Log("ìIÇ…ìñÇΩÇ¡ÇΩ");
-            AudioSource.PlayClipAtPoint(hitTargetSe, transform.position);
         }
         GetComponent<Rigidbody>().isKinematic = true;
-        GetComponent<ParticleSystem>().Play();
     }
 
     // Update is called once per frame

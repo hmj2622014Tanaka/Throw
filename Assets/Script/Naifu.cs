@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class Naifu : MonoBehaviour
 {
     [SerializeField] GameObject NaifuPrefab;
+
+    [SerializeField] int maxNaifuCount = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +17,18 @@ public class Naifu : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
+            NaifuContror[] currentKnives = FindObjectsByType<NaifuContror>(FindObjectsSortMode.None);
+
+            //ナイフが最大数の場合
+            if (currentKnives.Length >= maxNaifuCount)
+            {
+                if (currentKnives.Length > 0 && currentKnives[0] != null)
+                {
+                    Destroy(currentKnives[0].gameObject);
+                    Debug.Log("ナイフが最大数のため、最初のナイフを削除しました");
+                }
+            }
+
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             GameObject Naifu = Instantiate(NaifuPrefab, ray.origin, Quaternion.LookRotation(ray.direction));

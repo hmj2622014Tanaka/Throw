@@ -408,6 +408,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4174458924623054716}
   - component: {fileID: 7551425942489250264}
+  - component: {fileID: 8375362875765063326}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -453,6 +454,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.41957986
   m_Center: {x: -0.0000384748, y: 0.57168686, z: -0}
+--- !u!114 &8375362875765063326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3649456022846545350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d68dc6a7f76774a804cbc8d3928581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  deathEffectPrefab: {fileID: 8284419841856011303, guid: 19f45557c137e6948aa9a5ebedb6bc0d, type: 3}
 --- !u!1 &4352419557970712041
 GameObject:
   m_ObjectHideFlags: 0
