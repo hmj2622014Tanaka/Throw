@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 8375362875765063326}
   m_Layer: 0
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   deathEffectPrefab: {fileID: 8284419841856011303, guid: 19f45557c137e6948aa9a5ebedb6bc0d, type: 3}
+  scoreValue: 100
 --- !u!1 &4352419557970712041
 GameObject:
   m_ObjectHideFlags: 0

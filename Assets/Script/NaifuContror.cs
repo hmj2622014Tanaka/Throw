@@ -17,15 +17,20 @@ public class NaifuContror : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Rigidbody rb = GetComponent<Rigidbody>();
 
-        GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-
-        if (collision.gameObject.name == "target")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("“I‚É“–‚½‚Á‚½");
         }
-        GetComponent<Rigidbody>().isKinematic = true;
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            if (rb != null)
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
     }
 
     // Update is called once per frame
