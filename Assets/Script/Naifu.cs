@@ -25,7 +25,6 @@ public class Naifu : MonoBehaviour
                 if (currentKnives.Length > 0 && currentKnives[0] != null)
                 {
                     Destroy(currentKnives[0].gameObject);
-                    Debug.Log("ナイフが最大数のため、最初のナイフを削除しました");
                 }
             }
 

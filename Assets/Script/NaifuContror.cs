@@ -3,7 +3,13 @@ using UnityEngine;
 public class NaifuContror : MonoBehaviour
 {
     [SerializeField] AudioClip hitTargetSe;
+    [SerializeField] AudioSource audioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void Shoot(Vector3 dir)
     {
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -22,6 +28,15 @@ public class NaifuContror : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("的に当たった");
+
+            if (hitTargetSe != null)
+            {
+                AudioSource.PlayClipAtPoint(hitTargetSe, transform.position);
+            }
+            else
+            {
+                Debug.LogError("SE（hitTargetSe）がセットされていません！");
+            }
         }
 
         if (collision.gameObject.CompareTag("Wall"))
@@ -32,10 +47,4 @@ public class NaifuContror : MonoBehaviour
             }
         }
     }
-
-    // Update is called once per frame
-    void Start()
-    {
-        //Shoot(new Vector3(0, 200, 2000));
-    }
-}
+ }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float lifeTime = 10f;
+    float lifeTime = 5f;
 
     [SerializeField] GameObject deathEffectPrefab;
     [SerializeField] int scoreValue = 100;

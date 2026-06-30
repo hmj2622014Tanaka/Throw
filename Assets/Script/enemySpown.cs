@@ -3,15 +3,27 @@ using UnityEngine;
 public class enemySpown : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
-
     [SerializeField] Vector3 spawnRange = new Vector3(15f, 0f, 15f); // 横幅, 高さ, 奥行き
 
-    float spawnInterval = 1.5f;
+    [Header("スポーン間隔の設定")]
+    [SerializeField] float initialInterval = 2.0f; // スタート時のスポーン間隔（秒）
+    [SerializeField] float minInterval = 0.5f;     // 最も早くなったときのスポーン間隔（秒）
+    [SerializeField] float difficultySpeed = 0.05f; // 1秒ごとにどれくらい間隔を短くするか
 
+    float spawnInterval;
     float timer;
+    float elapsedTime;
+
+    void Start()
+    {
+        spawnInterval = initialInterval;
+    }
 
     void Update()
     {
+        elapsedTime += Time.deltaTime;
+        spawnInterval = Mathf.Max(minInterval, initialInterval - (elapsedTime * difficultySpeed));
+
         timer += Time.deltaTime;
 
         if (timer >= spawnInterval)
@@ -23,6 +35,8 @@ public class enemySpown : MonoBehaviour
 
     void SpawnEnemy()
     {
+        if (elapsedTime >= 60f) return;
+
         if (enemyPrefab == null) return;
 
         float randomX = Random.Range(-spawnRange.x / 2f, spawnRange.x / 2f);
